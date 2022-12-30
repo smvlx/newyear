@@ -20,22 +20,7 @@
             font-size: 16px;
             margin-bottom: 20px;
         }
-        /* Add some custom styles for the button and confetti */
-        
-        #claim-button {
-            display: inline-block;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        
-        #claim-button:hover {
-            background-color: #3e8e41;
-        }
+        /* Add some custom styles for the confetti */
         
         #confetti {
             display: none;
@@ -50,7 +35,6 @@
         }
         
         #link,
-        #claim-button,
         #confetti {
             display: block;
             margin: 20px;
@@ -61,13 +45,11 @@
             color: #4CAF50;
         }
     </style>
-
 </head>
 
 <body>
     <h1>Welcome to the Unique Link Generator!</h1>
-    <p>Click the button below to claim your unique link:</p>
-    <button id="claim-button">Claim Link</button>
+    <p>Here is your unique link:</p>
     <a id="link" href="#"></a>
     <div id="confetti"></div>
     <script>
@@ -85,15 +67,8 @@
         // Update the href attribute of the link element
         document.getElementById('link').href = link;
 
-        // Add a click event listener to the button
-        document.getElementById('claim-button').addEventListener('click', function() {
-            // Display the link and hide the button
-            document.getElementById('link').style.display = 'block';
-            document.getElementById('claim-button').style.display = 'none';
-
-            // Show confetti
-            document.getElementById('confetti').style.display = 'block';
-        });
+        // Show confetti
+        document.getElementById('confetti').style.display = 'block';
     </script>
 </body>
 
