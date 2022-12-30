@@ -1,51 +1,74 @@
-<!DOCTYPE html>
 <html>
 
 <head>
+    <title>Unique Link Generator</title>
     <style>
-        /* Add some style to the page */
+        /* Add some custom styles for the button and confetti */
         
-        body {
-            font-family: Arial, sans-serif;
+        #claim-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
         }
         
-        .link {
-            color: blue;
-            text-decoration: underline;
+        #claim-button:hover {
+            background-color: #3e8e41;
+        }
+        
+        #confetti {
+            display: none;
+        }
+        /* Center the elements on the page */
+        
+        body {
+            text-align: center;
+        }
+        
+        #link,
+        #claim-button,
+        #confetti {
+            display: inline-block;
+            margin: 20px;
         }
     </style>
 </head>
 
 <body>
-    <!-- Create a container to hold the link -->
-    <div id="link-container"></div>
+    <h1>Welcome to the Unique Link Generator!</h1>
+    <p>Click the button below to claim your unique link:</p>
+    <button id="claim-button">Claim Link</button>
+    <a id="link" href="#"></a>
+    <div id="confetti"></div>
+    <script>
+        // Pre-set list of links
+        var links = [
+            'https://www.example.com/link1',
+            'https://www.example.com/link2',
+            'https://www.example.com/link3',
+            'https://www.example.com/link4'
+        ];
+
+        // Select a random link from the list
+        var link = links[Math.floor(Math.random() * links.length)];
+
+        // Update the href attribute of the link element
+        document.getElementById('link').href = link;
+
+        // Add a click event listener to the button
+        document.getElementById('claim-button').addEventListener('click', function() {
+            // Display the link and hide the button
+            document.getElementById('link').style.display = 'inline';
+            document.getElementById('claim-button').style.display = 'none';
+
+            // Show confetti
+            document.getElementById('confetti').style.display = 'block';
+        });
+    </script>
 </body>
-<script>
-    // Define the list of links
-    const links = [
-        "https://www.example.com/link1",
-        "https://www.example.com/link2",
-        "https://www.example.com/link3"
-    ];
-
-    // Get the link container element
-    const linkContainer = document.getElementById("link-container");
-
-    // Check if the user has visited the page before
-    if (localStorage.getItem("visited") === "true") {
-        // If the user has visited the page before, display a message
-        linkContainer.innerHTML = "You have already received a unique link. Thank you for visiting again!";
-    } else {
-        // If the user has not visited the page before, display a unique link
-        // Get a random index from the list of links
-        const index = Math.floor(Math.random() * links.length);
-        // Get the link at the random index
-        const link = links[index];
-        // Set the inner HTML of the link container to be the unique link
-        linkContainer.innerHTML = `Your unique link is: <a class="link" href="${link}">${link}</a>`;
-        // Set the visited flag in local storage
-        localStorage.setItem("visited", "true");
-    }
-</script>
 
 </html>
