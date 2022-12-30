@@ -20,11 +20,6 @@
             font-size: 16px;
             margin-bottom: 20px;
         }
-        /* Add some custom styles for the confetti */
-        
-        #confetti {
-            display: none;
-        }
         /* Center the elements on the page */
         
         body {
@@ -34,13 +29,9 @@
             text-align: center;
         }
         
-        #link,
-        #confetti {
+        #link {
             display: block;
             margin: 20px;
-        }
-        
-        #link {
             font-size: 20px;
             color: #4CAF50;
         }
@@ -51,7 +42,6 @@
     <h1>Welcome to the Unique Link Generator!</h1>
     <p>Here is your unique link:</p>
     <a id="link" href="#"></a>
-    <div id="confetti"></div>
     <script>
         // Pre-set list of links
         var links = [
@@ -66,9 +56,6 @@
 
         // Update the href attribute of the link element
         document.getElementById('link').href = link;
-
-        // Show confetti
-        document.getElementById('confetti').style.display = 'block';
     </script>
 </body>
 
