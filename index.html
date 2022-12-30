@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Add some style to the page */
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .link {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Create a container to hold the link -->
+    <div id="link-container"></div>
+</body>
+<script>
+    // Define the list of links
+    const links = [
+        "https://www.example.com/link1",
+        "https://www.example.com/link2",
+        "https://www.example.com/link3"
+    ];
+
+    // Get the link container element
+    const linkContainer = document.getElementById("link-container");
+
+    // Check if the user has visited the page before
+    if (localStorage.getItem("visited") === "true") {
+        // If the user has visited the page before, display a message
+        linkContainer.innerHTML = "You have already received a unique link. Thank you for visiting again!";
+    } else {
+        // If the user has not visited the page before, display a unique link
+        // Get a random index from the list of links
+        const index = Math.floor(Math.random() * links.length);
+        // Get the link at the random index
+        const link = links[index];
+        // Set the inner HTML of the link container to be the unique link
+        linkContainer.innerHTML = `Your unique link is: <a class="link" href="${link}">${link}</a>`;
+        // Set the visited flag in local storage
+        localStorage.setItem("visited", "true");
+    }
+</script>
+
+</html>
