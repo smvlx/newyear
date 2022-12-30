@@ -26,13 +26,16 @@
         /* Center the elements on the page */
         
         body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
             text-align: center;
         }
         
         #link,
         #claim-button,
         #confetti {
-            display: inline-block;
+            display: block;
             margin: 20px;
         }
     </style>
@@ -62,7 +65,7 @@
         // Add a click event listener to the button
         document.getElementById('claim-button').addEventListener('click', function() {
             // Display the link and hide the button
-            document.getElementById('link').style.display = 'inline';
+            document.getElementById('link').style.display = 'block';
             document.getElementById('claim-button').style.display = 'none';
 
             // Show confetti
