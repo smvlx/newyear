@@ -16,6 +16,7 @@
     <a id="link" href="#">Click here to see your link</a>
     <script>
         // Pre-set list of links
+        // Pre-set list of links
         var links = [
             'https://www.example.com/link1',
             'https://www.example.com/link2',
@@ -23,11 +24,27 @@
             'https://www.example.com/link4'
         ];
 
-        // Select a random link from the list
-        var link = links[Math.floor(Math.random() * links.length)];
+        // Function to get a unique link
+        function getUniqueLink() {
+            // Check if the array is empty
+            if (links.length === 0) {
+                return 'All links have been used';
+            }
+
+            // Select the first link from the array
+            var link = links[0];
+
+            // Remove the selected link from the array
+            links.shift();
+
+            return link;
+        }
+
+        // Get a unique link
+        var uniqueLink = getUniqueLink();
 
         // Update the href attribute of the link element
-        document.getElementById('link').href = link;
+        document.getElementById('link').href = uniqueLink;
     </script>
 </body>
 
