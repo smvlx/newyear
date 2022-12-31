@@ -43,6 +43,6 @@ app.get('/get-link', (req, res) => {
 });
 
 // Start the server
-app.listen(3333, () => {
-    console.log('Server listening on port 3333');
+app.listen(3000, () => {
+    console.log('Server listening on port 3000');
 });
